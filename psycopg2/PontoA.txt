@@ -1,0 +1,121 @@
+PontoA
+WKT: POINT(-5239225.30602146 -2610140.57104475)
+WKB: 010100002031BF0D0009DB95536EFC53C18FFE1749EEE943C1
+WGS84: Latitude: -22.8189685 Longitude:-47.0647617
+
+SELECT way FROM planet_osm_point WHERE name='PontoA';
+010100002031BF0D0009DB95536EFC53C18FFE1749EEE943C1
+
+SELECT ST_AsText('010100002031BF0D0009DB95536EFC53C18FFE1749EEE943C1');
+POINT(-5239225.30602146 -2610140.57104475)
+
+SELECT ST_GeomFromText('POINT(-5239225.30602146 -2610140.57104475)',900913);
+010100002031BF0D0009DB95536EFC53C18FFE1749EEE943C1
+
+
+
+SELECT ST_SetSRID(ST_MakePoint(-47.0647617, -22.8189685),4326);
+0101000020E610000045C4831C4A8847C045F46BEBA7D136C0
+
+SELECT ST_SetSRID(ST_MakePoint(-47.0647617, -22.8189685),900913);
+010100002031BF0D0045C4831C4A8847C045F46BEBA7D136C0
+
+SELECT ST_SetSRID(ST_MakePoint(-47.0647617, -22.8189685),4269);
+0101000020AD10000045C4831C4A8847C045F46BEBA7D136C0
+
+SELECT ST_AsEWKT('010100002031BF0D0009DB95536EFC53C18FFE1749EEE943C1');
+SRID=900913;POINT(-5239225.30602146 -2610140.57104475)
+
+SELECT ST_AsEWKT('0101000020E610000045C4831C4A8847C045F46BEBA7D136C0');
+SRID=4326;POINT(-47.0647617 -22.8189685)
+
+
+
+SELECT ST_AsText(ST_Transform(ST_GeomFromText('POINT(-5239225.30602146 -2610140.57104475)',900913),4326));
+POINT(-47.0647616934485 -22.8189684969915)
+
+SELECT osm_id, amenity, name, ST_AsText(ST_Transform(way,4326)) FROM planet_osm_point;
+
+SELECT osm_id, amenity, name, ST_AsText(ST_Transform(way,4326)) FROM planet_osm_point WHERE amenity IS NOT NULL;
+
+
+
+INSERT INTO planet_osm_point (osm_id, amenity, name, way) VALUES ((SELECT (MAX(osm_id) + 1) FROM planet_osm_point), 'traffic_signals', 'Semaforo',ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913));
+
+SELECT osm_id, amenity, name, ST_AsText(ST_Transform(way,4326)) FROM planet_osm_point WHERE amenity IS NOT NULL ORDER BY osm_id DESC LIMIT 1;
+
+UPDATE planet_osm_point SET amenity='traffic_signals' WHERE osm_id='2633071869';
+
+UPDATE planet_osm_point SET way=ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913) WHERE osm_id='2633071869';
+
+
+PontoA | POINT(-5239225.30602146 -2610140.57104475)
+Instituto de Computação | POINT(-5239211.59146019 -2609638.07178243)
+
+PontoA | POINT(-47.0647616934485 -22.8189684969915)
+Instituto de Computação | POINT(-47.0646384934485 -22.8148076969921)
+
+SELECT ST_Distance('POINT(-47.0647616934485 -22.8189684969915)'::geography,'POINT(-47.0646384934485 -22.8148076969921)'::geography) AS d;
+
+SELECT ST_Distance(ST_Transform(ST_GeomFromText('POINT(-5239225.30602146 -2610140.57104475)',900913),4326), ST_Transform(ST_GeomFromText('POINT(-5239211.59146019 -2609638.07178243)', 900913),4326));
+
+
+units in planar degrees 4326 is WGS 84 long lat unit=degrees
+SELECT ST_Distance(
+		ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),
+		ST_GeomFromText('POINT(-47.0646384934485 -22.8148076969921)',4326)
+	);
+
+st_distance     
+---------------------
+ 0.00416262355672286
+
+units in meters
+ SELECT ST_Distance(
+			ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913),
+			ST_Transform(ST_GeomFromText('POINT(-47.0646384934485 -22.8148076969921)',4326),900913)
+		);
+
+st_distance   
+-----------------
+ 502.68638117052
+
+
+SELECT osm_id, amenity, name, ST_AsText(ST_Transform(way,4326)), ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), way)  FROM planet_osm_point ORDER BY ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), way);
+
+ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), way);
+
+
+o
+
+SELECT osm_id, amenity, name, ST_AsText(ST_Transform(way,4326)), ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), way) FROM planet_osm_point WHERE ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), way) < 700 ORDER BY ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), way);
+
+
+---------------------------------------------------------------------------------
+
+INSERT INTO info_vilma (position, type, info) VALUES (ST_Transform(ST_GeomFromText('POINT(-47.0655077 -22.8186797)',4326),900913),'Sinal','Pare 1');
+INSERT INTO info_vilma (position, type, info) VALUES (ST_Transform(ST_GeomFromText('POINT(-47.0661232 -22.8185443)',4326),900913),'Sinal','Pare 2');
+INSERT INTO info_vilma (position, type, info) VALUES (ST_Transform(ST_GeomFromText('POINT(-47.0670109 -22.818127)',4326),900913),'Sinal','Pare 3');
+INSERT INTO info_vilma (position, type, info) VALUES (ST_Transform(ST_GeomFromText('POINT(-47.0678393 -22.8178672)',4326),900913),'Sinal','Pare 4');
+
+
+Sinal Pare 1
+Localização: -22,8186797, -47,0655077 (lat,long)
+
+Sinal Pare 2
+Localização:  -22,8185443, -47,0661232 (lat,long)
+
+Sinal Pare 3
+Localização: -22,818127, -47,0670109 (lat,long)
+
+Sinal Pare 4
+Localização: -22,8178672, -47,0678393 (lat,long)
+
+Distancia a los puntos
+
+SELECT ST_AsText(ST_Transform(position,4326)), type, info, ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), position) FROM info_vilma WHERE ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), position) < 10 ORDER BY ST_Distance(ST_Transform(ST_GeomFromText('POINT(-47.0647616934485 -22.8189684969915)',4326),900913), position);
+
+UPDATE info_vilma SET position = ST_Transform(ST_GeomFromText('POINT(-47.0661091 -22.8185083)',4326),900913) WHERE id = 2;
+
+SELECT ST_AsText(ST_Transform(position,4326)), type, info, FROM info_vilma;
+

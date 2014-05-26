@@ -1,0 +1,47 @@
+Gazebo multi-robot simulator, version 1.9.5
+Copyright (C) 2014 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+Gazebo multi-robot simulator, version 1.9.5
+Copyright (C) 2014 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+[1;32mMsg[0m Waiting for master.....
+[1;32mMsg[0m Connected to gazebo master @ http://127.0.0.1:11345
+[1;32mMsg[0m Publicized address: 192.168.0.181
+[33m[ WARN] [1400870370.436188710]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870370.936697803]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870371.437124482]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870371.937571602]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870372.438036956]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870372.938455696]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870373.438778167]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870373.939097933]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870374.439399250]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870374.939764696]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870375.440132838]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870375.940544179]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870376.440900461]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870376.941404829]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870377.441842299]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870377.942327233]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870378.442844348]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870378.943204897]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870379.443636121]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870379.944087882]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870380.444449307]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870380.944887853]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870381.445240247]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870381.945739333]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870382.446385553]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870382.946825260]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870383.447236550]: No ROS master - start roscore to continue...[0m
+[33m[ WARN] [1400870383.947862738]: No ROS master - start roscore to continue...[0m
+[0m[ INFO] [1400870384.464325779]: Finished loading Gazebo ROS API Plugin.[0m
+[1;32mMsg[0m Waiting for master
+[1;32mMsg[0m Connected to gazebo master @ http://127.0.0.1:11345
+[1;32mMsg[0m Publicized address: 192.168.0.181
+Terminated
+/opt/ros/hydro/lib/gazebo_ros/gazebo: 25: kill: invalid signal number or name: SIGINT

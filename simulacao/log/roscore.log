@@ -1,0 +1,30 @@
+... logging to /home/mafda/.ros/log/86ffcda8-e2a9-11e3-afc4-e4ce8f477ed0/roslaunch-mafda-MacBookPro-3158.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;roscore
+[1mstarted roslaunch server http://mafda-MacBookPro:59863/[0m
+ros_comm version 1.10.2
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro
+ * /rosversion
+
+NODES
+
+auto-starting new master
+[1mprocess[master]: started with pid [3253][0m
+[1mROS_MASTER_URI=http://mafda-MacBookPro:11311/[0m
+]2;roscore http://mafda-MacBookPro:11311/
+[1msetting /run_id to 86ffcda8-e2a9-11e3-afc4-e4ce8f477ed0[0m
+[1mprocess[rosout-1]: started with pid [3266][0m
+started core service [/rosout]
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
